@@ -1,4 +1,4 @@
 general:
-  disable-acrobatics: true
+  acrobatics: true
 settings:
   xp-multiplier: 1
