@@ -1,0 +1,9 @@
+name: type-mmo
+version: '1.0-SNAPSHOT'
+main: dev.type.typeMmo.TypeMmo
+api-version: '1.21'
+
+
+commands:
+  test:
+  config:
