@@ -24,7 +24,7 @@ public final class TypeMmo extends JavaPlugin {
 
 //        Register Commands
         getCommand("test").setExecutor(new TestCommand());
-        getCommand("config").setExecutor((new configCommand(this)));
+        getCommand("mmoconfig").setExecutor((new configCommand(this)));
 
 //        Register Listeners
         Bukkit.getPluginManager().registerEvents(new Acrobatics(this), this);

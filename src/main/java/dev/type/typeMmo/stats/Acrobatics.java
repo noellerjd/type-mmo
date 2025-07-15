@@ -31,7 +31,7 @@ public class Acrobatics implements Listener {
         FileConfiguration config = plugin.getConfig();
         Player player = event.getPlayer();
 //        Check if acrobatics is disabled in config
-        if (!config.getBoolean("general.disable-acrobatics") ) {
+        if (config.getBoolean("general.acrobatics") ) {
             if (!player.isSwimming() && !player.isFlying()) {
                 player.sendMessage("Acrobatics");
                 timeMap.put(player, System.currentTimeMillis());
