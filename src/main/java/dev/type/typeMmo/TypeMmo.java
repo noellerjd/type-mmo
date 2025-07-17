@@ -2,11 +2,11 @@ package dev.type.typeMmo;
 
 import dev.type.typeMmo.commands.TestCommand;
 import dev.type.typeMmo.commands.configCommand;
+import dev.type.typeMmo.commands.StatsCommand;
 import dev.type.typeMmo.files.DataFile;
 import dev.type.typeMmo.stats.Acrobatics;
 import dev.type.typeMmo.stats.PlayerJoin;
 import org.bukkit.Bukkit;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class TypeMmo extends JavaPlugin {
@@ -26,6 +26,7 @@ public final class TypeMmo extends JavaPlugin {
 //        Register Commands
         getCommand("test").setExecutor(new TestCommand());
         getCommand("mmoconfig").setExecutor((new configCommand(this)));
+        getCommand("stats").setExecutor(new StatsCommand());
 
 //        Register Listeners
         Bukkit.getPluginManager().registerEvents(new PlayerJoin(this), this);
