@@ -17,11 +17,11 @@ import java.util.HashMap;
 import static dev.type.typeMmo.files.DataFile.reload;
 import static dev.type.typeMmo.files.DataFile.save;
 
-public class Acrobatics implements Listener {
+public class Dexterity implements Listener {
 
     private TypeMmo plugin;
 
-    public Acrobatics(TypeMmo plugin) {
+    public Dexterity(TypeMmo plugin) {
         this.plugin = plugin;
     }
 
@@ -35,9 +35,9 @@ public class Acrobatics implements Listener {
         FileConfiguration config = plugin.getConfig();
         Player player = event.getPlayer();
 //        Check if acrobatics is disabled in config
-        if (config.getBoolean("general.acrobatics") ) {
+        if (config.getBoolean("general.dexterity") ) {
             if (!player.isSwimming() && !player.isFlying()) {
-                player.sendMessage("Acrobatics");
+                player.sendMessage("Dex - Jump");
                 timeMap.put(player, System.currentTimeMillis());
             }
 
@@ -64,26 +64,26 @@ public class Acrobatics implements Listener {
 //            Delay calculation to work with player death trigger.
             Bukkit.getScheduler().runTaskLater(plugin, ()-> {
 //                If the player hasn't died, calculate time in air
-//                todo: create more rebust checks to prevent ladder/hitting head as a way to level quickly
+//                todo: create more robust checks to prevent ladder/hitting head as a way to level quickly
                 if (!player.isDead()) {
                     long time1 = timeMap.get(player);
                     long time2 = System.currentTimeMillis();
 
                     long diff = time2 - time1;
-                    if (diff > 600) {
+                    if (diff > 800) {
 
                         player.sendMessage("Time in air: " + diff);
 //                    Remove player from set after calculation
                         timeMap.remove(player);
                         String uuid = player.getUniqueId().toString();
-                        int currentXP = data.getInt(uuid + ".stats.acrobaticsXP");
+                        int currentXP = data.getInt(uuid + ".stats.dexXP");
                         int xpGained = (int) (diff / 100);
                         int newXP = currentXP + xpGained;
                         int totalXP = data.getInt(uuid + ".totalXP");
                         int newTotalXp = totalXP + xpGained;
 
                         data.set(uuid + ".totalXP", newTotalXp);
-                        data.set(uuid + ".stats.acrobaticsXP", newXP);
+                        data.set(uuid + ".stats.dexXP", newXP);
                         save();
                         reload();
                     }

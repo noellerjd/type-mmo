@@ -21,11 +21,11 @@ public class StatsCommand implements CommandExecutor {
             if (data.contains(uuid)) {
                 int totalLevel = playerInfo.getInt("totalLevel");
                 int totalXP = playerInfo.getInt("totalXP");
-                int acrobaticsLevel = playerInfo.getInt("stats.acrobatics");
-                int acrobaticsXP = playerInfo.getInt("stats.acrobaticsXP");
+                int dexLevel = playerInfo.getInt("stats.dexLevel");
+                int dexXP = playerInfo.getInt("stats.dexXP");
 
                 p.sendMessage(ChatColor.GOLD + "Total Level: " + totalLevel + "\nTotal XP: " + totalXP);
-                p.sendMessage("Acrobatics Level: " + acrobaticsLevel + "\nAcrobatics XP: " + acrobaticsXP);
+                p.sendMessage("Acrobatics Level: " + dexLevel + "\nDexterity XP: " + dexXP);
 
             } else {
                 p.sendMessage(ChatColor.RED + "There was an error loading your data.");

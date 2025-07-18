@@ -31,8 +31,8 @@ public class PlayerJoin implements Listener {
             data.set(uuid + ".name", player.getName());
             data.set(uuid + ".totalLevel", player.getLevel());
             data.set(uuid + ".totalXP", 0);
-            data.set(uuid + ".stats.acrobaticsXP", 0);
-            data.set(uuid + ".stats.acrobaticsLevel", 0);
+            data.set(uuid + ".stats.dexXP", 0);
+            data.set(uuid + ".stats.dexLevel", 0);
             save();
             reload();
         }
